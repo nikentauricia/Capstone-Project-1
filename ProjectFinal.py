@@ -26,6 +26,7 @@ dataPasien = [
 pasien = []
 
 ######### OPSI MENAMPILKAN DAFTAR PASIEN #########
+
 def menampilkanDaftarPasien() :
     print('Daftar Pasien Rawat Inap\n')
     print('ID\t| Nama\t\t| Umur\t| P/L\t| Lokasi Rawat Inap\t| keretangan\t')
@@ -75,8 +76,9 @@ def menuUtamaDaftarPasien():
                     menuDaftarPasien
         elif (menuDaftarPasien == '3'):
             menuUtamaCapstone()
+
+
               
-        
                  
          
 ######### OPSI MENAMBAH DAFTAR PASIEN #########
@@ -142,13 +144,15 @@ def menghapusDataPasien() :
                     del dataPasien[findData]
                     print('Data berikut sudah dihapus')
 
-                    menuKembali = input('Tekan \'X\' untuk Kembali : ')
-                    if menuKembali == 'X':
-                        menuUtamaCapstone() 
-                    else :
-                        False
-                        print('Tidak ada opsi {}. Ulangi kembali'.format(menuKembali))
-                    
+                    while True :
+                        menuKembali = input('Tekan \'X\' untuk Kembali : ')
+                        if menuKembali == 'X':
+                            menghapusDataPasien() 
+                        else :
+                            False
+                            print('Tidak ada opsi {}. Ulangi kembali'.format(menuKembali))
+                elif findData == 'X':
+                    menghapusDataPasien()  
                 else:
                     False
                     print('Tidak ada data pasien')
@@ -162,7 +166,7 @@ def menghapusDataPasien() :
             menghapusDataPasien()
 
 
-######### OPSI MENGUPDATE DAFTAR PASIEN #########
+######### OPSI MENGUPDATE/MENGUBAH DAFTAR PASIEN #########
 def mengupdateDataPasien() :
     yangInginDiubah = str(input('''
     Pilih data yang ingin diubah:
@@ -270,7 +274,8 @@ def mengupdateDataPasien() :
 
         else:
             False
-            print('Tidak ada pilihan {}. Ulangi kembali'.format(yangInginDiubah)) 
+            print('Tidak ada pilihan {}. Ulangi kembali'.format(yangInginDiubah))
+            mengupdateDataPasien() 
 
 
 def exitProgram():
